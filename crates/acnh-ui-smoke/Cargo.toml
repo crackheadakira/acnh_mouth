@@ -11,5 +11,5 @@ titleid = "01006F8002326000"
 crate-type = ["cdylib"]
 
 [dependencies]
-skyline = "0.6.0"
-acnh-ui-api = { path = "../acnh-ui-api" }
+skyline = { workspace = true }
+acnh-ui-api = { workspace = true }

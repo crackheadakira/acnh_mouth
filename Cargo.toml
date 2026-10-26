@@ -1,6 +1,7 @@
 [workspace]
-members = ["crates/*"]
 resolver = "3"
+members = ["crates/acnh-mouth", "crates/acnh-ui-smoke"]
+default-members = ["crates/acnh-mouth"]
 
 [profile.dev]
 panic = "abort"
@@ -8,3 +9,8 @@ panic = "abort"
 [profile.release]
 panic = "abort"
 lto = true
+
+[workspace.dependencies]
+skyline = "0.6.0"
+acnh-ui-api = { git = "https://github.com/acnhmodding/nookkit", package = "acnh-ui-api" }
+native-vtable = { git = "https://github.com/crackheadakira/vtable-rs" }
