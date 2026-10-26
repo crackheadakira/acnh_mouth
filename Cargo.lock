@@ -62,8 +62,9 @@ dependencies = [
 [[package]]
 name = "nookkit"
 version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
 dependencies = [
+ "nookkit-layouts",
  "nookkit-sys",
  "nookkit-types",
  "skyline",
@@ -71,9 +72,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "nookkit-layouts"
+version = "0.1.0"
+source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+
+[[package]]
 name = "nookkit-sym"
 version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
 dependencies = [
  "thiserror",
 ]
@@ -81,12 +87,12 @@ dependencies = [
 [[package]]
 name = "nookkit-sys"
 version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
 
 [[package]]
 name = "nookkit-types"
 version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
 dependencies = [
  "native-vtable",
  "nookkit-sym",

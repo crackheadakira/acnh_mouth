@@ -1,7 +1,7 @@
 use core::cell::UnsafeCell;
 use core::ptr::null_mut;
 
-use nookkit::{Direction, ItemUpdate, List, ListTarget, PageFilter, Ui};
+use nookkit::{Direction, ItemUpdate, List, ListTarget, Ui, pages};
 
 use crate::game::param::mouth_type_count;
 use crate::game::ui::chara_make::{CATEGORY_MOUTH, CharaMakeSeq, FACE_PARAM_MOUTH, RequestState};
@@ -205,14 +205,16 @@ impl Mouths {
 }
 
 pub fn register(ui: &Ui) -> nookkit::Result {
-    ui.on_page(PageFilter::Layout("CharaMake"), |page| {
+    ui.on_page::<pages::CharaMake>(|page| {
         let list = page.list("/L_BtnListMouth_00")?;
+
         let nose = [
-            page.pane("/L_BtnNose_00")?,
-            page.pane("/L_BtnNose_01")?,
-            page.pane("/L_BtnNose_02")?,
+            page.pane(pages::CharaMake::L_BTN_NOSE_00)?,
+            page.pane(pages::CharaMake::L_BTN_NOSE_01)?,
+            page.pane(pages::CharaMake::L_BTN_NOSE_02)?,
         ];
-        let ok = page.pane("/L_BtnOk_00")?;
+
+        let ok = page.pane(pages::CharaMake::L_BTN_OK_00)?;
 
         list.on_item(|update| {
             report("item", unsafe { mouths().render(update) });

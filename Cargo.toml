@@ -1,7 +1,7 @@
 [workspace]
 resolver = "3"
 members = ["crates/acnh-mouth", "crates/acnh-ui-smoke"]
-default-members = ["crates/acnh-mouth"]
+default-members = ["crates/acnh-mouth", "crates/acnh-ui-smoke"]
 
 [profile.dev]
 panic = "abort"

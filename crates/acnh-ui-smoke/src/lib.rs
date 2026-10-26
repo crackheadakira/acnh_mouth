@@ -1,4 +1,4 @@
-use nookkit::{Key, Page, PageFilter, Result, connect};
+use nookkit::{Key, Page, Result, connect, pages};
 
 fn log_seq(page: Page, name: &'static str) -> Result {
     page.on_ready(move |seq| {
@@ -87,16 +87,14 @@ fn start() -> Result {
     let ui = connect("acnh-ui-smoke")?;
     println!("[acnh-ui-smoke] connected");
 
-    ui.on_page(PageFilter::Layout("MenuDevice"), |page| {
-        log_seq(page, "MenuDevice")
-    })?;
+    ui.on_page::<pages::MenuDevice>(|page| log_seq(page, "MenuDevice"))?;
 
-    ui.on_page(PageFilter::Layout("CharaMake"), |page| {
+    ui.on_page::<pages::CharaMake>(|page| {
         println!("[acnh-ui-smoke] CharaMake built {:p}", page.raw());
         log_seq(page, "CharaMake")?;
         bind_keys(page)?;
 
-        let ok = page.pane("/L_BtnOk_00")?;
+        let ok = page.pane(pages::CharaMake::L_BTN_NOSE_00)?;
         let mut visible = true;
 
         page.on_decide(move |e| {
