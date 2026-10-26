@@ -13,4 +13,4 @@ crate-type = ["cdylib"]
 [dependencies]
 native-vtable = { workspace = true }
 skyline = { workspace = true }
-acnh-ui-api = { workspace = true }
+nookkit = { workspace = true }

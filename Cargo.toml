@@ -12,5 +12,5 @@ lto = true
 
 [workspace.dependencies]
 skyline = "0.6.0"
-acnh-ui-api = { git = "https://github.com/acnhmodding/nookkit", package = "acnh-ui-api" }
+nookkit = { git = "https://github.com/acnhmodding/nookkit", package = "nookkit" }
 native-vtable = { git = "https://github.com/crackheadakira/vtable-rs" }

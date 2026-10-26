@@ -3,47 +3,21 @@
 version = 4
 
 [[package]]
-name = "acnh-game"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#0d5029f49fc17c06ff0dd8317771594b54f7be0d"
-dependencies = [
- "native-vtable",
- "skyline",
- "thiserror",
-]
-
-[[package]]
 name = "acnh-mouth"
 version = "0.1.0"
 dependencies = [
- "acnh-ui-api",
  "native-vtable",
+ "nookkit",
  "skyline",
-]
-
-[[package]]
-name = "acnh-ui-api"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#0d5029f49fc17c06ff0dd8317771594b54f7be0d"
-dependencies = [
- "acnh-game",
- "acnh-ui-sys",
- "skyline",
- "thiserror",
 ]
 
 [[package]]
 name = "acnh-ui-smoke"
 version = "0.1.0"
 dependencies = [
- "acnh-ui-api",
+ "nookkit",
  "skyline",
 ]
-
-[[package]]
-name = "acnh-ui-sys"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#0d5029f49fc17c06ff0dd8317771594b54f7be0d"
 
 [[package]]
 name = "lazy_static"
@@ -83,6 +57,41 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "26aa8c57f278ea8e9158530faf0154ee253fe2ed49383730878d62175ace86a3"
 dependencies = [
  "libc-nnsdk",
+]
+
+[[package]]
+name = "nookkit"
+version = "0.1.0"
+source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+dependencies = [
+ "nookkit-sys",
+ "nookkit-types",
+ "skyline",
+ "thiserror",
+]
+
+[[package]]
+name = "nookkit-sym"
+version = "0.1.0"
+source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
+name = "nookkit-sys"
+version = "0.1.0"
+source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+
+[[package]]
+name = "nookkit-types"
+version = "0.1.0"
+source = "git+https://github.com/acnhmodding/nookkit#9638a712d629c6d16a0a7a72ddda79b89f4c0387"
+dependencies = [
+ "native-vtable",
+ "nookkit-sym",
+ "skyline",
+ "thiserror",
 ]
 
 [[package]]

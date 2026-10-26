@@ -3,12 +3,12 @@ mod mouths;
 mod native;
 mod offsets;
 
-use acnh_ui_api::game::sead;
 use game::ui::chara_make::*;
 use native::report;
+use nookkit::types::sead;
 use sead::ObjArray;
 
-acnh_ui_api::hook! {
+nookkit::hook! {
     resolve = crate::offsets::resolve;
     seq_fill_mouth_list = "fill_mouth_list";
     fn(values: *mut ObjArray<u32>) {
@@ -16,7 +16,7 @@ acnh_ui_api::hook! {
     }
 }
 
-acnh_ui_api::hook! {
+nookkit::hook! {
     resolve = crate::offsets::resolve;
     seq_refresh_enter = "refresh_enter";
     fn(seq: *mut CharaMakeSeq) {
@@ -26,7 +26,7 @@ acnh_ui_api::hook! {
     }
 }
 
-acnh_ui_api::hook! {
+nookkit::hook! {
     resolve = crate::offsets::resolve;
     seq_process_request = "process_request";
     fn(seq: *mut CharaMakeSeq) {
@@ -40,7 +40,7 @@ acnh_ui_api::hook! {
     }
 }
 
-acnh_ui_api::hook! {
+nookkit::hook! {
     resolve = crate::offsets::resolve;
     seq_set_group_enabled = "set_group_enabled";
     fn(seq: *mut CharaMakeSeq, group: u32, enable: u32, mode: u32) {
@@ -56,7 +56,7 @@ acnh_ui_api::hook! {
     }
 }
 
-acnh_ui_api::hook! {
+nookkit::hook! {
     resolve = crate::offsets::resolve;
     seq_enter_idle = "enter_idle";
     fn(seq: *mut CharaMakeSeq) {
@@ -66,14 +66,14 @@ acnh_ui_api::hook! {
     }
 }
 
-fn ui_report(context: &str, result: acnh_ui_api::Result) {
+fn ui_report(context: &str, result: nookkit::Result) {
     if let Err(e) = result {
         println!("[acnh-mouth] {context}: {e}");
     }
 }
 
-fn install() -> acnh_ui_api::Result {
-    let ui = acnh_ui_api::connect("acnh-mouth")?;
+fn install() -> nookkit::Result {
+    let ui = nookkit::connect("acnh-mouth")?;
 
     seq_fill_mouth_list::install()?;
     seq_refresh_enter::install()?;

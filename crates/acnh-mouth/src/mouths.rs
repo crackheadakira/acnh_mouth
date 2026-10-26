@@ -1,7 +1,7 @@
 use core::cell::UnsafeCell;
 use core::ptr::null_mut;
 
-use acnh_ui_api::{Direction, ItemUpdate, List, ListTarget, PageFilter, Ui};
+use nookkit::{Direction, ItemUpdate, List, ListTarget, PageFilter, Ui};
 
 use crate::game::param::mouth_type_count;
 use crate::game::ui::chara_make::{CATEGORY_MOUTH, CharaMakeSeq, FACE_PARAM_MOUTH, RequestState};
@@ -204,7 +204,7 @@ impl Mouths {
     }
 }
 
-pub fn register(ui: &Ui) -> acnh_ui_api::Result {
+pub fn register(ui: &Ui) -> nookkit::Result {
     ui.on_page(PageFilter::Layout("CharaMake"), |page| {
         let list = page.list("/L_BtnListMouth_00")?;
         let nose = [
@@ -264,7 +264,7 @@ pub unsafe fn is_active(seq: *mut CharaMakeSeq) -> bool {
     unsafe { active(seq).is_some() }
 }
 
-pub unsafe fn set_enabled(seq: *mut CharaMakeSeq, enable: bool, mode: u32) -> acnh_ui_api::Result {
+pub unsafe fn set_enabled(seq: *mut CharaMakeSeq, enable: bool, mode: u32) -> nookkit::Result {
     let Some(mouths) = (unsafe { active(seq) }) else {
         return Ok(());
     };
@@ -294,7 +294,7 @@ pub unsafe fn fill(values: *mut ObjArray<u32>, game_fill: impl FnOnce()) -> Nati
     }
 }
 
-pub unsafe fn refresh(seq: *mut CharaMakeSeq) -> acnh_ui_api::Result {
+pub unsafe fn refresh(seq: *mut CharaMakeSeq) -> nookkit::Result {
     let Some(mouths) = (unsafe { active(seq) }).filter(|m| m.values.count != 0) else {
         return Ok(());
     };
@@ -311,7 +311,7 @@ pub unsafe fn refresh(seq: *mut CharaMakeSeq) -> acnh_ui_api::Result {
 }
 
 // UpdateAnchor links OK to the old mouth buttons
-pub unsafe fn after_request(seq: *mut CharaMakeSeq) -> acnh_ui_api::Result {
+pub unsafe fn after_request(seq: *mut CharaMakeSeq) -> nookkit::Result {
     match unsafe { active(seq) }.filter(|m| m.enabled) {
         Some(mouths) => mouths.list.map_or(Ok(()), |list| list.relink()),
         None => Ok(()),

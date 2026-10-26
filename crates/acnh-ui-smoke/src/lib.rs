@@ -1,4 +1,4 @@
-use acnh_ui_api::{Key, Page, PageFilter, Result, connect};
+use nookkit::{Key, Page, PageFilter, Result, connect};
 
 fn log_seq(page: Page, name: &'static str) -> Result {
     page.on_ready(move |seq| {
@@ -87,7 +87,9 @@ fn start() -> Result {
     let ui = connect("acnh-ui-smoke")?;
     println!("[acnh-ui-smoke] connected");
 
-    ui.on_page(PageFilter::Layout("MenuDevice"), |page| log_seq(page, "MenuDevice"))?;
+    ui.on_page(PageFilter::Layout("MenuDevice"), |page| {
+        log_seq(page, "MenuDevice")
+    })?;
 
     ui.on_page(PageFilter::Layout("CharaMake"), |page| {
         println!("[acnh-ui-smoke] CharaMake built {:p}", page.raw());

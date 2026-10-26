@@ -1,4 +1,4 @@
-acnh_ui_api::offsets! {
+nookkit::offsets! {
     fill_mouth_list = 0x2b8fe60,
     refresh_enter = 0x2ba1460,
     process_request = 0x2ba4a00,
