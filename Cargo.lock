@@ -61,8 +61,8 @@ dependencies = [
 
 [[package]]
 name = "nookkit"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+version = "0.2.0"
+source = "git+https://github.com/acnhmodding/nookkit#634f3f42d1aa2b573c78f4e5a4ce81363bad7869"
 dependencies = [
  "nookkit-layouts",
  "nookkit-sys",
@@ -73,26 +73,26 @@ dependencies = [
 
 [[package]]
 name = "nookkit-layouts"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+version = "0.2.0"
+source = "git+https://github.com/acnhmodding/nookkit#634f3f42d1aa2b573c78f4e5a4ce81363bad7869"
 
 [[package]]
 name = "nookkit-sym"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+version = "0.2.0"
+source = "git+https://github.com/acnhmodding/nookkit#634f3f42d1aa2b573c78f4e5a4ce81363bad7869"
 dependencies = [
  "thiserror",
 ]
 
 [[package]]
 name = "nookkit-sys"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+version = "0.2.0"
+source = "git+https://github.com/acnhmodding/nookkit#634f3f42d1aa2b573c78f4e5a4ce81363bad7869"
 
 [[package]]
 name = "nookkit-types"
-version = "0.1.0"
-source = "git+https://github.com/acnhmodding/nookkit#f95055be0551ffe77faf45f59fc249d3a69b1f0d"
+version = "0.2.0"
+source = "git+https://github.com/acnhmodding/nookkit#634f3f42d1aa2b573c78f4e5a4ce81363bad7869"
 dependencies = [
  "native-vtable",
  "nookkit-sym",

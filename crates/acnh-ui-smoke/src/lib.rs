@@ -6,19 +6,19 @@ fn log_seq(page: Page, name: &'static str) -> Result {
         Ok(())
     })?;
 
-    page.on_activate(move || {
+    page.on_activate(move |_| {
         println!("[acnh-ui-smoke] {name} activate");
         Ok(())
     })?;
 
-    page.on_deactivated(move || {
+    page.on_deactivate(move |_| {
         println!("[acnh-ui-smoke] {name} deactivated");
         Ok(())
     })?;
 
     let mut frames = 0u32;
 
-    page.on_update(move || {
+    page.on_update(move |_| {
         frames += 1;
 
         if frames % 300 == 1 {
@@ -26,7 +26,9 @@ fn log_seq(page: Page, name: &'static str) -> Result {
         }
 
         Ok(())
-    })
+    })?;
+
+    Ok(())
 }
 
 fn bind_keys(page: Page) -> Result {
@@ -107,7 +109,9 @@ fn start() -> Result {
             }
 
             Ok(())
-        })
+        })?;
+
+        Ok(())
     })
 }
 

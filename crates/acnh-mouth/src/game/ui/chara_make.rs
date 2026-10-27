@@ -83,7 +83,7 @@ pub struct CharaMakeSeq {
     pub face_params: FaceParams,
     _unk_320: [u8; 0x8a0],
     pub mouth_values: ObjArray<u32>,
-    _unk_bd8: [u8; 0x418],
+    _unk_be0: [u8; 0x410],
     pub icon_texture_pool: IconTexturePool,
     _unk_ff0: [u8; 0x1bfdc],
     pub request: Request,

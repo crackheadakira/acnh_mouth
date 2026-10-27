@@ -1,7 +1,7 @@
 use core::cell::UnsafeCell;
 use core::ptr::null_mut;
 
-use nookkit::{Direction, ItemUpdate, List, ListTarget, Ui, pages};
+use nookkit::{Direction, ItemUpdate, List, ListTarget, Player, Ui, pages};
 
 use crate::game::param::mouth_type_count;
 use crate::game::ui::chara_make::{CATEGORY_MOUTH, CharaMakeSeq, FACE_PARAM_MOUTH, RequestState};
@@ -250,7 +250,7 @@ pub fn register(ui: &Ui) -> nookkit::Result {
             Ok(())
         })?;
 
-        page.on_update(|| {
+        page.on_update(|_| {
             let mouths = unsafe { mouths() };
 
             if mouths.list.is_some() {
@@ -258,7 +258,9 @@ pub fn register(ui: &Ui) -> nookkit::Result {
             }
 
             Ok(())
-        })
+        })?;
+
+        Ok(())
     })
 }
 
@@ -308,7 +310,7 @@ pub unsafe fn refresh(seq: *mut CharaMakeSeq) -> nookkit::Result {
     let selected = mouths.values.item_of(mouth).unwrap_or(0);
 
     mouths.list.map_or(Ok(()), |list| {
-        list.set_items(mouths.values.count, selected, player)
+        list.set_items(mouths.values.count, selected, Player::new(player).unwrap_or_default())
     })
 }
 
